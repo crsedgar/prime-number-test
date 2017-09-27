@@ -6,4 +6,8 @@ public class PrimeGenerator {
 		return 0;
 	}
 
+	public void isPrime(int i) {
+		
+	}
+
 }
