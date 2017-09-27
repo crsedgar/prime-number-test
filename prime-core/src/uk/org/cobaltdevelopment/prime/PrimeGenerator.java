@@ -10,7 +10,7 @@ public class PrimeGenerator {
 		boolean isPrime = true;
 
 		if (number < 1) {
-			throw new IllegalArgumentException("Illegal argument only natrual numbers are expected");
+			throw new IllegalArgumentException("Illegal argument only natural numbers are expected");
 		}
 		
 		if(number > 2 && (number % 2 == 0)){

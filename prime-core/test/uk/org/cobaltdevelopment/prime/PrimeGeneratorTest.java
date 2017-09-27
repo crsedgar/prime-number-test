@@ -32,5 +32,10 @@ public class PrimeGeneratorTest {
 		assertThat(pg.isPrime(2), equalTo(true));
 		assertThat(pg.isPrime(4), equalTo(false));
 	}
+	
+	@Test
+	public void testOneIsNotAPrime(){
+		assertThat(pg.isPrime(1), equalTo(false));
+	}
 
 }
