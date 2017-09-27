@@ -9,19 +9,36 @@ public class PrimeGenerator {
 	public boolean isPrime(int number) {
 		boolean isPrime = true;
 
-		if (number < 1) {
-			throw new IllegalArgumentException("Illegal argument only natural numbers are expected");
+		if (!naturalNumber(number)) {
+			throw new NotNaturalNumberException();
 		}
 
-		if (number > 2 && (number % 2 == 0)) {
+		if (evenNumberGreaterThanTwo(number)) {
 			isPrime = false;
 		}
 
-		if (number < 2) {
+		if (lessThanTwo(number)) {
 			isPrime = false;
 		}
 
 		return isPrime;
 	}
 
+	private boolean lessThanTwo(int number) {
+		return number < 2;
+	}
+
+	private boolean naturalNumber(int number) {
+		return number > 0;
+	}
+
+	private boolean evenNumberGreaterThanTwo(int number) {
+		return number > 2 && (number % 2 == 0);
+	}
+
+}
+
+@SuppressWarnings("serial")
+class NotNaturalNumberException extends RuntimeException{
+	
 }

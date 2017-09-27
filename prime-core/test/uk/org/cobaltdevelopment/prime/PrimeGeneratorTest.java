@@ -22,20 +22,28 @@ public class PrimeGeneratorTest {
 		assertThat(pg.generatePrime(1), equalTo(new int[] { 2 }));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NotNaturalNumberException.class)
 	public void testNonNaturalNumbersZero() {
 		pg.isPrime(0);
 	}
 
 	@Test
 	public void testTheOnlyEvenPrime() {
-		assertThat(pg.isPrime(2), equalTo(true));
-		assertThat(pg.isPrime(4), equalTo(false));
+		isPrime(2);
+		isNotPrime(4);
 	}
 	
 	@Test
 	public void testOneIsNotAPrime(){
-		assertThat(pg.isPrime(1), equalTo(false));
+		isNotPrime(1);
 	}
+	
+	private void isPrime(int num){
+		assertThat(pg.isPrime(num), equalTo(true));
+	}
+	
+	private void isNotPrime(int num){
+		assertThat(pg.isPrime(num), equalTo(false));
+	}	
 
 }
