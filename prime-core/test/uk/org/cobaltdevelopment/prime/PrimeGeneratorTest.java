@@ -20,6 +20,11 @@ public class PrimeGeneratorTest {
 		assertThat(pg.generatePrime(1), equalTo(2));
 	}
 
+	@Test
+	public void canGeneratorFirstTwoPrimes() {
+		assertThat(pg.generatePrime(2), equalTo(new int[] { 2, 3 }));
+	}
+
 	@Test(expected = NotNaturalNumberException.class)
 	public void testNonNaturalNumbersZero() {
 		pg.isPrime(0);
