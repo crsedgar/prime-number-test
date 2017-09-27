@@ -5,25 +5,32 @@ public class PrimeTable {
 	private int[][] table;
 
 	public PrimeTable(int[] primes) {
-		table = new int[primes.length + 1][primes.length + 1];
+		final int CELL_WIDTH = primes.length + 1;
+		table = new int[CELL_WIDTH][CELL_WIDTH];
 
+		populateOuterCells(primes);
+		fillTableWithMultiplication();
+
+	}
+
+	private void fillTableWithMultiplication() {
+		for (int rowIdx = 1; rowIdx < table.length; rowIdx++) {
+			for (int colIdx = 1; colIdx < table.length; colIdx++) {
+				int rowPrime = table[rowIdx][0];
+				int colPrime = table[0][colIdx];
+				table[rowIdx][colIdx] = rowPrime * colPrime;
+			}
+		}
+	}
+
+	private void populateOuterCells(int[] primes) {
 		int primeCount = 1;
-		// populate outer cells
+		
 		for (int i = 0; i < primes.length; i++) {
 			table[0][primeCount] = primes[i];
 			table[primeCount][0] = primes[i];
 			primeCount++;
 		}
-
-		// fill in multiplication
-		for (int i = 1; i < table.length; i++) {
-			for (int j = 1; j < table.length; j++) {
-				int rowPrime = table[i][0];
-				int colPrime = table[0][j];
-				table[i][j] = rowPrime * colPrime;
-			}
-		}
-
 	}
 
 	public int numberOfRows() {
