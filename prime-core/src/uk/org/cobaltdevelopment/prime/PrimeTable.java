@@ -16,4 +16,8 @@ public class PrimeTable {
 		return table[0].length;
 	}
 
+	public int getCell(int rowIdx, int colIdx) {
+		return table[rowIdx][colIdx];
+	}
+
 }
