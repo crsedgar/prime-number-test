@@ -2,6 +2,10 @@ package uk.org.cobaltdevelopment.prime;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 
@@ -47,16 +51,30 @@ public class PrimeTableTest {
 
 	@Test
 	public void canFormatTable() {
-		PrimeTable primeTable = new PrimeTable(new int[] { 2, 3, 5 });
-		String table = primeTable.formatTable();
+		PrimeTable primeTable = new PrimeTable(new int[] { });
+		TwoDimensionalPrimeTableFormatter formatterMock = mock(TwoDimensionalPrimeTableFormatter.class);
+
 		//@formatter:off
 		String expectedTable = 
-				"|      |    2 |    3 |    5 |\n" +
-				"|    2 |    4 |    6 |   10 |\n" +
-				"|    3 |    6 |    9 |   15 |\n" +
-				"|    5 |   10 |   15 |   25 |\n";
+				"|      |    2 |\n" +
+				"|    2 |    4 |\n";
 		//@formatter:on
 
+		when(formatterMock.formatTable(primeTable)).thenReturn(expectedTable);
+
+		primeTable.setFormatter(formatterMock);
+		String table = primeTable.formatTable();
+
 		assertThat(table, equalTo(expectedTable));
+
+		verify(formatterMock, times(1)).formatTable(primeTable);
+
 	}
+
+	@Test(expected = IllegalStateException.class)
+	public void formatTableWithoutFormatter() {
+		PrimeTable primeTable = new PrimeTable(new int[] { 2, 3, 5 });
+		primeTable.formatTable();
+	}
+
 }
