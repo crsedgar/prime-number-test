@@ -33,7 +33,7 @@ public class PrimeGenerator {
 			isPrime = false;
 		}
 
-		if (number > 5 && number % 10 == 5) {
+		if (greaterThanFiveAndEndsInFive(number)) {
 			isPrime = false;
 		}
 
@@ -45,6 +45,10 @@ public class PrimeGenerator {
 		}
 
 		return isPrime;
+	}
+
+	private boolean greaterThanFiveAndEndsInFive(int number) {
+		return number > 5 && number % 10 == 5;
 	}
 
 	private boolean lessThanTwo(int number) {
