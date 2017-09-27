@@ -48,6 +48,11 @@ public class PrimeGeneratorTest {
 		isPrime(997);
 	}
 	
+	@Test
+	public void testPrimeLargerThanFiveEndingInFive(){
+		isNotPrime(505);
+	}
+	
 	private void isPrime(int num){
 		assertThat(pg.isPrime(num), equalTo(true));
 	}
