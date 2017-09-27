@@ -7,7 +7,9 @@ public class PrimeGenerator {
 	}
 
 	public void isPrime(int i) {
-		
+		if (i < 1) {
+			throw new IllegalArgumentException("Illegal argument only natrual numbers are expected");
+		}
 	}
 
 }
