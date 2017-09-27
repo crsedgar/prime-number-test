@@ -17,12 +17,17 @@ public class PrimeGeneratorTest {
 
 	@Test
 	public void canGeneratorFirstPrime() {
-		assertThat(pg.generatePrime(1), equalTo(new int[] { 2 }));
+		assertGenerate(1, new int[] { 2 });
 	}
 
 	@Test
 	public void canGeneratorFirstTwoPrimes() {
-		assertThat(pg.generatePrime(2), equalTo(new int[] { 2, 3 }));
+		assertGenerate(2, new int[] { 2, 3 });
+	}
+
+	@Test
+	public void canGeneratorFirstTenPrimes() {
+		assertGenerate(10, new int[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 });
 	}
 
 	@Test(expected = NotNaturalNumberException.class)
@@ -60,6 +65,10 @@ public class PrimeGeneratorTest {
 	@Test
 	public void testLargeNonPrime() {
 		isNotPrime(999);
+	}
+
+	private void assertGenerate(int numberToGenerate, int[] expectedResult) {
+		assertThat(pg.generatePrimes(numberToGenerate), equalTo(expectedResult));
 	}
 
 	private void isPrime(int num) {

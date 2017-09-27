@@ -2,7 +2,7 @@ package uk.org.cobaltdevelopment.prime;
 
 public class PrimeGenerator {
 
-	public int[] generatePrime(int numToGenerate) {
+	public int[] generatePrimes(int numToGenerate) {
 		int[] result = new int[numToGenerate];
 		int primesFound = 0;
 		int currentNum = 2;
