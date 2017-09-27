@@ -1,0 +1,10 @@
+
+prime-core/.settings/org.eclipse.jdt.core.prefs
+
+prime-core/.settings/org.eclipse.m2e.core.prefs
+
+*.prefs
+
+app/prime-cli/.project
+
+app/prime-cli/.classpath

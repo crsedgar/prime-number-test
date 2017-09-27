@@ -5,8 +5,8 @@ import org.junit.Test;
 public class PrimeGeneratorTest {
 
 	@Test
-	public void testProjectSetup(){
-		
+	public void canCreateGenerator(){
+		PrimeGenerator pg = new PrimeGenerator();
 	}
 	
 }
