@@ -6,10 +6,14 @@ public class PrimeGenerator {
 		return 0;
 	}
 
-	public void isPrime(int i) {
+	public boolean isPrime(int i) {
+		boolean isPrime = true;
+
 		if (i < 1) {
 			throw new IllegalArgumentException("Illegal argument only natrual numbers are expected");
 		}
+
+		return isPrime;
 	}
 
 }
