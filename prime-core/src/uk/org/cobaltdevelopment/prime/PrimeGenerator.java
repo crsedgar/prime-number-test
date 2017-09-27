@@ -3,7 +3,17 @@ package uk.org.cobaltdevelopment.prime;
 public class PrimeGenerator {
 
 	public int generatePrime(int numToGenerate) {
-		return 0;
+		boolean found = false;
+		int currentNum = 2;
+		while (!found) {
+			if (isPrime(currentNum)) {
+				found = true;
+			} else {
+				currentNum++;
+			}
+		}
+
+		return currentNum;
 	}
 
 	public boolean isPrime(int number) {
