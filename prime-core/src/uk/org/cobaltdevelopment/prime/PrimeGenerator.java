@@ -20,9 +20,16 @@ public class PrimeGenerator {
 		if (lessThanTwo(number)) {
 			isPrime = false;
 		}
-		
-		if(number > 5 && number % 10 == 5){
+
+		if (number > 5 && number % 10 == 5) {
 			isPrime = false;
+		}
+
+		for (int i = number - 1; i > 1; --i) {
+			if (number % i == 0) {
+				isPrime = false;
+				break;
+			}
 		}
 
 		return isPrime;
@@ -43,6 +50,6 @@ public class PrimeGenerator {
 }
 
 @SuppressWarnings("serial")
-class NotNaturalNumberException extends RuntimeException{
-	
+class NotNaturalNumberException extends RuntimeException {
+
 }
