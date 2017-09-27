@@ -25,7 +25,7 @@ public class PrimeTable {
 
 	private void populateOuterCells(int[] primes) {
 		int primeCount = 1;
-		
+
 		for (int i = 0; i < primes.length; i++) {
 			table[0][primeCount] = primes[i];
 			table[primeCount][0] = primes[i];
@@ -43,6 +43,10 @@ public class PrimeTable {
 
 	public int getCell(int rowIdx, int colIdx) {
 		return table[rowIdx][colIdx];
+	}
+
+	public String formatTable() {
+		return null;
 	}
 
 }
