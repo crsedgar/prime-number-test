@@ -46,4 +46,10 @@ public class PrimeNumberServiceTest {
 		PowerMockito.verifyPrivate(objectUnderTest).invoke("constructTable", generatedPrimes);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidArgument() {
+		PrimeNumberService objectUnderTest = new DefaultPrimeNumberService(primeGenerator);
+		objectUnderTest.createPrimeTable(0);
+	}
+
 }
