@@ -51,6 +51,12 @@ public class PrimeGeneratorTest {
 	@Test
 	public void testPrimeLargerThanFiveEndingInFive(){
 		isNotPrime(505);
+		isPrime(5);
+	}
+	
+	@Test
+	public void testLargeNonPrime(){
+		isNotPrime(999);
 	}
 	
 	private void isPrime(int num){
