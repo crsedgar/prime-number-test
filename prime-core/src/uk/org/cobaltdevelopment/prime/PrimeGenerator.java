@@ -20,6 +20,10 @@ public class PrimeGenerator {
 		if (lessThanTwo(number)) {
 			isPrime = false;
 		}
+		
+		if(number > 5 && number % 10 == 5){
+			isPrime = false;
+		}
 
 		return isPrime;
 	}
