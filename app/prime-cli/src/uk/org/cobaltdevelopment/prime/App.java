@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class App {
 
+	private PrimeGenerator primeGenerator;
+	private TwoDimensionalPrimeTableFormatter formatter;
+
+	public App() {
+		primeGenerator = new PrimeGenerator();
+		formatter = new TwoDimensionalPrimeTableFormatter();
+	}
+
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
@@ -24,10 +32,9 @@ public class App {
 	}
 
 	public void run(int numberOfPrimes) {
-		PrimeGenerator primeGenerator = new PrimeGenerator();
 		int[] primes = primeGenerator.generatePrimes(numberOfPrimes);
 		PrimeTable primeTable = new PrimeTable(primes);
-		primeTable.setFormatter(new TwoDimensionalPrimeTableFormatter());
+		primeTable.setFormatter(formatter);
 		System.out.println(primeTable.formatTable());
 	}
 
