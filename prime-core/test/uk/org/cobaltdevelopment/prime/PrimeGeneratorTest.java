@@ -38,6 +38,16 @@ public class PrimeGeneratorTest {
 		isNotPrime(1);
 	}
 	
+	@Test
+	public void testSecondPrime(){
+		isPrime(3);
+	}
+	
+	@Test
+	public void testLargePrime(){
+		isPrime(997);
+	}
+	
 	private void isPrime(int num){
 		assertThat(pg.isPrime(num), equalTo(true));
 	}
