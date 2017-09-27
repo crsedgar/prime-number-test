@@ -6,7 +6,19 @@ Running Application
 The application can be run two ways;
 
 - Maven
-Firstly you will need to install Maven on the client machine if not already installed, downloadable from [here(https://maven.apache.org/download.cgi)]. Once installed use the terminal to navigate to the prime-number-test/prime-core root folder and run **mvn install**. After receiving the success message navigate to the prime-number-test/app/prime-cli root folder and run **mvn exec:java**. Follow the on screen prompts to generate prime tables.
+Firstly you will need to install Maven on the client machine if not already installed, downloadable from [here(https://maven.apache.org/download.cgi)]. Once installed use the terminal to navigate to the prime-number-test/prime-core root folder and run 
+
+```
+mvn install
+```
+
+After receiving the success message navigate to the prime-number-test/app/prime-cli root folder and run 
+
+```
+mvn exec:java
+```
+
+Follow the on screen prompts to generate prime tables.
 
 - Java
 I have provided a java application binary that removes the dependency on Maven to run the program, you will still need java installed. To run the binary you should download the prime-cli-app.jar.jar jar file located in prime-number-test/bin/prime-cli-app.jar to your local machine. From the terminal run the following java command and follow the on screen prompts;
