@@ -11,9 +11,9 @@ Firstly you will need to install Maven on the client machine if not already inst
 - Java
 I have provided a java application binary that removes the dependency on Maven to run the program, you will still need java installed. To run the binary you should download the prime-cli-app.jar.jar jar file located in prime-number-test/bin/prime-cli-app.jar to your local machine. From the terminal run the following java command and follow the on screen prompts;
 
-'''
+```
 $JAVA_HOME/bin/java -jar prime-cli-app.jar
-'''
+```
 
 ##
 Good Points
