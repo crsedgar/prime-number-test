@@ -14,6 +14,9 @@ public class DefaultPrimeNumberService implements PrimeNumberService {
 
 	@Override
 	public PrimeTable createPrimeTable(int numberOfPrimes) {
+		if (numberOfPrimes < 1) {
+			throw new IllegalArgumentException("number of primes must be greater than zero.");
+		}
 		int[] generatedPrimes = primeGenerator.generatePrimes(numberOfPrimes);
 		PrimeTable table = constructTable(generatedPrimes);
 		return table;
