@@ -12,8 +12,12 @@ public class PrimeGenerator {
 		if (number < 1) {
 			throw new IllegalArgumentException("Illegal argument only natural numbers are expected");
 		}
-		
-		if(number > 2 && (number % 2 == 0)){
+
+		if (number > 2 && (number % 2 == 0)) {
+			isPrime = false;
+		}
+
+		if (number < 2) {
 			isPrime = false;
 		}
 
