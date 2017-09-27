@@ -16,5 +16,6 @@ public class PrimeTableTest {
 	public void canGenerateSmallestTable() {
 		PrimeTable t = new PrimeTable(new int[] { 2 });
 		assertThat(t.numberOfRows(), equalTo(2));
+		assertThat(t.numberOfCols(), equalTo(2));
 	}
 }
