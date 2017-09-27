@@ -46,7 +46,20 @@ public class PrimeTable {
 	}
 
 	public String formatTable() {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		for (int rowidx = 0; rowidx < numberOfRows(); rowidx++) {
+			sb.append("|");
+			for (int colIdx = 0; colIdx < numberOfCols(); colIdx++) {
+				int cell = getCell(rowidx, colIdx);
+				if (cell > 0)
+					sb.append(String.format("%5d |", cell));
+				else
+					sb.append(String.format("%5s |"," "));
+			}
+			sb.append(String.format("\n"));
+		}
+
+		return sb.toString();
 	}
 
 }

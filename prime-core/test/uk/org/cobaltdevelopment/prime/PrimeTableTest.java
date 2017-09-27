@@ -51,9 +51,10 @@ public class PrimeTableTest {
 		String table = primeTable.formatTable();
 		//@formatter:off
 		String expectedTable = 
-				"|    |   2|   3|\n" +
-				"|   2|   4|   6|\n" +
-				"|   3|   6|   9|\n";
+				"|      |    2 |    3 |    5 |\n" +
+				"|    2 |    4 |    6 |   10 |\n" +
+				"|    3 |    6 |    9 |   15 |\n" +
+				"|    5 |   10 |   15 |   25 |\n";
 		//@formatter:on
 
 		assertThat(table, equalTo(expectedTable));
