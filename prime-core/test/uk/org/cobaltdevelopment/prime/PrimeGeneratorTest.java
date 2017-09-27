@@ -17,7 +17,7 @@ public class PrimeGeneratorTest {
 
 	@Test
 	public void canGeneratorFirstPrime() {
-		assertThat(pg.generatePrime(1), equalTo(2));
+		assertThat(pg.generatePrime(1), equalTo(new int[] { 2 }));
 	}
 
 	@Test

@@ -2,18 +2,20 @@ package uk.org.cobaltdevelopment.prime;
 
 public class PrimeGenerator {
 
-	public int generatePrime(int numToGenerate) {
-		boolean found = false;
+	public int[] generatePrime(int numToGenerate) {
+		int[] result = new int[numToGenerate];
+		int primesFound = 0;
 		int currentNum = 2;
-		while (!found) {
+
+		while (primesFound < numToGenerate) {
 			if (isPrime(currentNum)) {
-				found = true;
-			} else {
-				currentNum++;
+				result[primesFound] = currentNum;
+				primesFound++;
 			}
+			currentNum++;
 		}
 
-		return currentNum;
+		return result;
 	}
 
 	public boolean isPrime(int number) {
