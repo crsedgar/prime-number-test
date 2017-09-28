@@ -6,7 +6,8 @@ import uk.org.cobaltdevelopment.prime.web.dto.TableDto;
 public class PrimeTableAdapter {
 
 	public TableDto convert(PrimeTable table) {
-		return null;
+		TableDto result = new TableDto();
+		return result;
 	}
 
 }
