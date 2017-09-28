@@ -19,11 +19,13 @@ public class PrimeTableControllerTest {
 
 	private PrimeNumberService serviceMock;
 	private PrimeTableAdapter adapterMock;
+	private PrimeTableController objectUnderTest;
 
 	@Before
 	public void setUp() throws Exception {
 		serviceMock = Mockito.mock(PrimeNumberService.class);
 		adapterMock = Mockito.mock(PrimeTableAdapter.class);
+		objectUnderTest = new PrimeTableController(serviceMock, adapterMock);
 	}
 
 	@Test
@@ -34,13 +36,18 @@ public class PrimeTableControllerTest {
 		when(serviceMock.createPrimeTable(2)).thenReturn(tableMock);
 		when(adapterMock.convert(tableMock)).thenReturn(tableDtoMock);
 
-		PrimeTableController controller = new PrimeTableController(serviceMock, adapterMock);
-		TableDto t = controller.generateTable(2);
+		TableDto t = objectUnderTest.generateTable(2);
 
 		verify(serviceMock, only()).createPrimeTable(2);
 		verify(adapterMock, only()).convert(Mockito.any());
 
 		assertThat(t, notNullValue());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void invalidInputRaisesException() {
+		when(serviceMock.createPrimeTable(0)).thenThrow(new IllegalArgumentException());
+		objectUnderTest.generateTable(0);
 	}
 
 }

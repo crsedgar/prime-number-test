@@ -63,9 +63,8 @@ public class PrimeGenerator {
 		return number > 2 && (number % 2 == 0);
 	}
 
-}
+	@SuppressWarnings("serial")
+	public class NotNaturalNumberException extends RuntimeException {
 
-@SuppressWarnings("serial")
-class NotNaturalNumberException extends RuntimeException {
-
+	}
 }

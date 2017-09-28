@@ -30,7 +30,7 @@ public class PrimeGeneratorTest {
 		assertGenerate(10, new int[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 });
 	}
 
-	@Test(expected = NotNaturalNumberException.class)
+	@Test(expected = PrimeGenerator.NotNaturalNumberException.class)
 	public void testNonNaturalNumbersZero() {
 		pg.isPrime(0);
 	}
