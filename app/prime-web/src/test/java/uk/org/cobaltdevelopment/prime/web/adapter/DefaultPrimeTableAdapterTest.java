@@ -11,13 +11,13 @@ import org.mockito.Mockito;
 import uk.org.cobaltdevelopment.prime.PrimeTable;
 import uk.org.cobaltdevelopment.prime.web.dto.TableDto;
 
-public class PrimeTableAdapterTest {
+public class DefaultPrimeTableAdapterTest {
 
 	private PrimeTableAdapter adapter;
 
 	@Before
 	public void setup() {
-		adapter = new PrimeTableAdapter();
+		adapter = new DefaultPrimeTableAdapter();
 	}
 
 	@Test
