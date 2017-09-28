@@ -41,5 +41,6 @@ public class DefaultPrimeTableAdapterTest {
 		TableDto result = adapter.convert(primeTableMock);
 
 		assertThat(result, Matchers.notNullValue());
+		assertThat(result.getRows(), Matchers.hasSize(3));
 	}
 }
