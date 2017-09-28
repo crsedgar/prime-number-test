@@ -21,8 +21,7 @@ public class PrimeWebApplication {
 
 	@Bean
 	public PrimeGenerator primeGenerator() {
-		PrimeGenerator bean = new PrimeGenerator();
-		return bean;
+		return new PrimeGenerator();
 	}
 
 	@Bean
