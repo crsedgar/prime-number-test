@@ -1,7 +1,10 @@
 package uk.org.cobaltdevelopment.prime.web.adapter;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
+
+import java.util.List;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -9,6 +12,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import uk.org.cobaltdevelopment.prime.PrimeTable;
+import uk.org.cobaltdevelopment.prime.web.dto.RowDto;
 import uk.org.cobaltdevelopment.prime.web.dto.TableDto;
 
 public class DefaultPrimeTableAdapterTest {
@@ -41,6 +45,9 @@ public class DefaultPrimeTableAdapterTest {
 		TableDto result = adapter.convert(primeTableMock);
 
 		assertThat(result, Matchers.notNullValue());
-		assertThat(result.getRows(), Matchers.hasSize(3));
+
+		List<RowDto> rows = result.getRows();
+		assertThat(rows, Matchers.hasSize(3));
+		assertThat(rows.get(0).getCols().get(0), equalTo(0));
 	}
 }
