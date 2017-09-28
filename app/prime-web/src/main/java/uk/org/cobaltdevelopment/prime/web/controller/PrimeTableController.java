@@ -1,14 +1,19 @@
 package uk.org.cobaltdevelopment.prime.web.controller;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import uk.org.cobaltdevelopment.prime.PrimeTable;
 import uk.org.cobaltdevelopment.prime.web.adapter.PrimeTableAdapter;
 import uk.org.cobaltdevelopment.prime.web.dto.TableDto;
 import uk.org.cobaltdevelopment.prime.web.service.PrimeNumberService;
 
-@Controller
+@Controller("/")
 public class PrimeTableController {
 
 	private PrimeNumberService service;
@@ -21,7 +26,8 @@ public class PrimeTableController {
 		this.adapter = adapter;
 	}
 
-	public TableDto generateTable(int numberOfPrimes) {
+	@RequestMapping(path = "api/table/{numberOfPrimes}", method = { GET })
+	public @ResponseBody TableDto generateTable(@PathVariable("numberOfPrimes") int numberOfPrimes) {
 		PrimeTable primeTable = service.createPrimeTable(numberOfPrimes);
 		TableDto tableDto = adapter.convert(primeTable);
 		return tableDto;
