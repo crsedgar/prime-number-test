@@ -3,6 +3,7 @@ package uk.org.cobaltdevelopment.prime.web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import uk.org.cobaltdevelopment.prime.PopulatedPrimeTable;
 import uk.org.cobaltdevelopment.prime.PrimeGenerator;
 import uk.org.cobaltdevelopment.prime.PrimeTable;
 
@@ -28,7 +29,7 @@ public class DefaultPrimeNumberService implements PrimeNumberService {
 	}
 
 	private PrimeTable constructTable(int[] generatedPrimes) {
-		return new PrimeTable(generatedPrimes);
+		return PopulatedPrimeTable.Make(generatedPrimes);
 	}
 
 }

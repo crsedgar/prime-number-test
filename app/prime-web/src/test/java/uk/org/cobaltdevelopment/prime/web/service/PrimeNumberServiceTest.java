@@ -14,6 +14,7 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import uk.org.cobaltdevelopment.prime.PopulatedPrimeTable;
 import uk.org.cobaltdevelopment.prime.PrimeGenerator;
 import uk.org.cobaltdevelopment.prime.PrimeTable;
 
@@ -22,12 +23,12 @@ import uk.org.cobaltdevelopment.prime.PrimeTable;
 public class PrimeNumberServiceTest {
 
 	PrimeGenerator primeGenerator;
-	PrimeTable tableMock;
+	PopulatedPrimeTable tableMock;
 
 	@Before
 	public void setUp() throws Exception {
 		primeGenerator = mock(PrimeGenerator.class);
-		tableMock = mock(PrimeTable.class);
+		tableMock = mock(PopulatedPrimeTable.class);
 	}
 
 	@Test

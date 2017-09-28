@@ -1,6 +1,7 @@
 package uk.org.cobaltdevelopment.prime;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -13,12 +14,12 @@ public class PrimeTableTest {
 
 	@Test
 	public void canCreateTable() {
-		new PrimeTable(new int[] { 2 });
+		PopulatedPrimeTable.Make(2);
 	}
 
 	@Test
 	public void canGenerateSmallestTable() {
-		PrimeTable t = new PrimeTable(new int[] { 2 });
+		PrimeTable t = PopulatedPrimeTable.Make(2);
 		assertThat(t.numberOfRows(), equalTo(2));
 		assertThat(t.numberOfCols(), equalTo(2));
 
@@ -30,7 +31,7 @@ public class PrimeTableTest {
 
 	@Test
 	public void canGenerateTableOfTwoPrimes() {
-		PrimeTable primeTable = new PrimeTable(new int[] { 2, 3 });
+		PrimeTable primeTable = PopulatedPrimeTable.Make(2, 3);
 
 		assertThat(primeTable.numberOfRows(), equalTo(3));
 		assertThat(primeTable.numberOfCols(), equalTo(3));
@@ -51,7 +52,7 @@ public class PrimeTableTest {
 
 	@Test
 	public void canFormatTable() {
-		PrimeTable primeTable = new PrimeTable(new int[] { });
+		PrimeTable primeTable = PopulatedPrimeTable.Make();
 		TwoDimensionalPrimeTableFormatter formatterMock = mock(TwoDimensionalPrimeTableFormatter.class);
 
 		//@formatter:off
@@ -73,8 +74,16 @@ public class PrimeTableTest {
 
 	@Test(expected = IllegalStateException.class)
 	public void formatTableWithoutFormatter() {
-		PrimeTable primeTable = new PrimeTable(new int[] { 2, 3, 5 });
+		PrimeTable primeTable = PopulatedPrimeTable.Make(2, 3, 5);
 		primeTable.formatTable();
+	}
+
+	@Test
+	public void canCreateEmptyTable() {
+		PrimeTable table = PopulatedPrimeTable.Make();
+		assertThat(table.numberOfCols(), equalTo(0));
+		assertThat(table.numberOfRows(), equalTo(0));
+		assertThat(table.getCell(0, 0), nullValue());
 	}
 
 }
