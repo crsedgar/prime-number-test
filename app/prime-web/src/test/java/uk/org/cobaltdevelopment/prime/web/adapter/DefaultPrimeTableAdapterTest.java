@@ -49,5 +49,16 @@ public class DefaultPrimeTableAdapterTest {
 		List<RowDto> rows = result.getRows();
 		assertThat(rows, Matchers.hasSize(3));
 		assertThat(rows.get(0).getCols().get(0), equalTo(0));
+		assertThat(rows.get(0).getCols().get(1), equalTo(10));
+		assertThat(rows.get(0).getCols().get(2), equalTo(0));
+
+		assertThat(rows.get(1).getCols().get(0), equalTo(1));
+		assertThat(rows.get(1).getCols().get(1), equalTo(100));
+		assertThat(rows.get(1).getCols().get(2), equalTo(1));
+		
+		assertThat(rows.get(2).getCols().get(0), equalTo(2));
+		assertThat(rows.get(2).getCols().get(1), equalTo(9999));
+		assertThat(rows.get(2).getCols().get(2), equalTo(1000));
+		
 	}
 }
