@@ -33,7 +33,7 @@ public class App {
 
 	public void run(int numberOfPrimes) {
 		int[] primes = primeGenerator.generatePrimes(numberOfPrimes);
-		PrimeTable primeTable = new PrimeTable(primes);
+		PrimeTable primeTable = PopulatedPrimeTable.Make(primes);
 		primeTable.setFormatter(formatter);
 		System.out.println(primeTable.formatTable());
 	}
